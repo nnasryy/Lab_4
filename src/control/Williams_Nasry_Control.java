@@ -15,7 +15,7 @@ public class Williams_Nasry_Control {
             System.out.println("\n=== Menu ===");//menu
             System.out.println("1. Cifrado Cesar");
             System.out.println("2. Filtrar");
-            System.out.println("3. Codigo Enigma");
+            System.out.println("3. Opcion 3");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opcion (1-4): ");
             opcion = scanner.nextInt();
@@ -50,12 +50,12 @@ public class Williams_Nasry_Control {
 
         String palabra = "";
         int longitud = 0;
-                System.out.println("\n===Filtrar palabras por longitud===");
-        System.out.print("Ingrese una frase: ");
+                System.out.println("FILTRAR");
+        System.out.println("Ingrese una frase: ");
         String frase = scanner.nextLine();
 
         do {
-            System.out.print("Ingrese un numero entero positivo que representara la longitud minima requerida: ");
+            System.out.println("Ingrese un numero entero positivo que representara la longitud minima requerida: ");
             longitud = scanner.nextInt();
 
         } while (longitud <= 0);
@@ -82,8 +82,13 @@ public class Williams_Nasry_Control {
        
                 
             } else if (opcion == 3) {
-                
+              
+               
+            } else if (opcion == 4) {
+                System.out.println("Saliendo del programa...");
+            } else {
+                System.out.println("Opcion no valida");
             }
-            }
+        }
     }
 }
