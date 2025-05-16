@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Williams_Nasry_Control {
 
-   
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0; 
@@ -82,8 +81,60 @@ public class Williams_Nasry_Control {
        
                 
             } else if (opcion == 3) {
-              
-               
+                System.out.println("\n=== Codigo Enigma ===");
+                System.out.println("1. Encriptar texto");
+                System.out.println("2. Desencriptar texto");
+                System.out.println("3. Regresar");
+                System.out.print("Seleccione una opcion (1-3): ");
+                int opcionEnigm = scanner.nextInt(); // Cambiar subOpcion a opcionEnigm
+                scanner.nextLine(); // Limpiar el buffer
+
+                if (opcionEnigm == 1) {
+                    // Encriptar texto
+                    System.out.print("Ingrese el texto a encriptar: ");
+                    String textoOriginal = scanner.nextLine();
+                    String pares = "";
+                    String impares = "";
+
+                    for (int i = 0; i < textoOriginal.length(); i++) {
+                        if (i % 2 == 0) {                     // Separamos pares e impares
+                            pares += textoOriginal.charAt(i); // caracteres en posiciones pares
+                        } else {
+                            impares += textoOriginal.charAt(i); // caracteres en posiciones impares
+                        }
+                    }
+
+                    String textoEncriptado = pares + impares; // concatenamos primero los pares a los impares
+                    System.out.println("Texto encriptado: " + textoEncriptado);
+                } else if (opcionEnigm == 2) {
+                    // Desencriptar texto
+                    System.out.print("Ingrese el texto a desencriptar: ");
+                    String textoEncriptado = scanner.nextLine();
+                    int longitudPares = textoEncriptado.length() / 2;
+                    String pares = "";
+                    String impares = "";
+
+                    for (int i = 0; i < longitudPares; i++) {
+                        pares += textoEncriptado.charAt(i); 
+                        if (i + longitudPares < textoEncriptado.length()) {
+                            impares += textoEncriptado.charAt(i + longitudPares); 
+                        }
+                    }
+
+                    String textoDesencriptado = "";
+                    for (int i = 0; i < longitudPares; i++) {
+                        textoDesencriptado += pares.charAt(i); 
+                        if (i < impares.length()) {
+                            textoDesencriptado += impares.charAt(i); 
+                        }
+                    }
+
+                    System.out.println("Texto desencriptado: " + textoDesencriptado); 
+                } else if (opcionEnigm == 3) {
+                    System.out.println("Regresando al menu principal...");
+                } else {
+                    System.out.println("Opcion no valida.");
+                }
             } else if (opcion == 4) {
                 System.out.println("Saliendo del programa...");
             } else {
@@ -92,3 +143,7 @@ public class Williams_Nasry_Control {
         }
     }
 }
+
+
+
+
