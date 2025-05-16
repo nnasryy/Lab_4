@@ -14,7 +14,7 @@ public class Williams_Nasry_Control {
         while (opcion != 4) {
             System.out.println("\n=== Menu ===");//menu
             System.out.println("1. Cifrado Cesar");
-            System.out.println("2. Opcion 2");
+            System.out.println("2. Filtrar");
             System.out.println("3. Opcion 3");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opcion (1-4): ");
@@ -45,8 +45,41 @@ public class Williams_Nasry_Control {
                 }
 
                 System.out.println("Texto cifrado: " + fraseFinal);
+                
             } else if (opcion == 2) {
 
+        String palabra = "";
+        int longitud = 0;
+                System.out.println("FILTRAR");
+        System.out.println("Ingrese una frase: ");
+        String frase = scanner.nextLine();
+
+        do {
+            System.out.println("Ingrese un numero entero positivo que representara la longitud minima requerida: ");
+            longitud = scanner.nextInt();
+
+        } while (longitud <= 0);
+
+        System.out.println("Palabras con mas de " + longitud + " letras: ");
+
+        for (int i = 0; i < frase.length(); i++) {
+            char j = frase.charAt(i);
+
+            if (j != ' ') {
+                palabra += j;
+            } else {
+                if (palabra.length() >= longitud) {
+                    System.out.println(palabra);
+                }
+                palabra = "";
+            }
+
+        }
+
+        if (palabra.length() > longitud) {
+            System.out.println(palabra);
+        }
+       
                 
             } else if (opcion == 3) {
               
